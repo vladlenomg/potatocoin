@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both potatod and potato-qt, to make it harder for attackers to
+ * for both innovad and innova-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Potato Core");
+const std::string CLIENT_NAME("Innova Core");
 
 /**
  * Client version number

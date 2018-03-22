@@ -1,8 +1,8 @@
-Source: potato
+Source: innova
 Section: utils
 Priority: optional
-Maintainer: Holger Schinzel <holger@potatocoin.info>
-Uploaders: Holger Schinzel <holger@potatocoin.info>
+Maintainer: Holger Schinzel <holger@innovacoin.info>
+Uploaders: Holger Schinzel <holger@innovacoin.info>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -24,45 +24,45 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler,
  python
 Standards-Version: 3.9.2
-Homepage: https://www.potatocoin.info/
-Vcs-Git: git://github.com/potatocoin/potato.git
-Vcs-Browser: https://github.com/potatocoin/potato
+Homepage: https://www.innovacoin.info/
+Vcs-Git: git://github.com/innovacoin/innova.git
+Vcs-Browser: https://github.com/innovacoin/innova
 
-Package: potatod
+Package: innovad
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Potato is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Potato uses peer-to-peer
+ Innova is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Innova uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Potato Core
+ and issuing money are carried out collectively by the network. Innova Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides the daemon, potatod, and the CLI tool
- potato-cli to interact with the daemon.
+ This package provides the daemon, innovad, and the CLI tool
+ innova-cli to interact with the daemon.
 
-Package: potato-qt
+Package: innova-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Potato is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Potato uses peer-to-peer
+ Innova is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Innova uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Potato Core
+ and issuing money are carried out collectively by the network. Innova Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides Potato-Qt, a GUI for Potato based on Qt.
+ This package provides Innova-Qt, a GUI for Innova based on Qt.
 
-Package: potato-tx
+Package: innova-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Potato is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Potato uses peer-to-peer
+ Innova is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Innova uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Potato Core
+ and issuing money are carried out collectively by the network. Innova Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides potato-tx, a command-line transaction creation
- tool which can be used without a potato daemon.  Some means of
+ This package provides innova-tx, a command-line transaction creation
+ tool which can be used without a innova daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

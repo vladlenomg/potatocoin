@@ -149,7 +149,7 @@ Thanks to everyone who directly contributed to this release:
 - Gregory Maxwell
 - Jonas Schnelli
 - J Ross Nicoll
-- Luke Potatojr
+- Luke Innovajr
 - Pavel Janík
 - Pavel Vasin
 - Peter Todd

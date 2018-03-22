@@ -1,9 +1,9 @@
 # Linearize
 Construct a linear, no-fork, best version of the blockchain.
 
-## Step 0: Install potato_hash
+## Step 0: Install innova_hash
 
-https://github.com/potatocoin/potato_hash
+https://github.com/innovacoin/innova_hash
 
 ## Step 1: Download hash list
 

@@ -6,13 +6,13 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with `make check`.
 
-To run the potatod tests manually, launch `src/test/test_potato`.
+To run the innovad tests manually, launch `src/test/test_innova`.
 
-To add more potatod tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more innovad tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the `test/` directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the potato-qt tests manually, launch `src/qt/test/test_potato-qt`
+To run the innova-qt tests manually, launch `src/qt/test/test_innova-qt`
 
-To add more potato-qt tests, add them to the `src/qt/test/` directory and
+To add more innova-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

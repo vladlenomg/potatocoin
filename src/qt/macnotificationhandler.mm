@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.potato.Potato-Qt";
+        return @"org.innova.Innova-Qt";
     } else {
         return [self __bundleIdentifier];
     }

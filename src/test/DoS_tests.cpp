@@ -13,7 +13,7 @@
 #include "serialize.h"
 #include "util.h"
 
-#include "test/test_potato.h"
+#include "test/test_innova.h"
 
 #include <stdint.h>
 

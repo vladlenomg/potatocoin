@@ -9,7 +9,7 @@
 #include "script/script.h"
 #include "script/script_error.h"
 #include "script/sign.h"
-#include "test/test_potato.h"
+#include "test/test_innova.h"
 
 #ifdef ENABLE_WALLET
 #include "wallet/wallet_ismine.h"

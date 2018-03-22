@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Potato Core developers
+// Copyright (c) 2014-2017 The Innova Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 #define BITCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/potato-config.h"
+#include "config/innova-config.h"
 #endif
 
 #include "compat.h"
@@ -34,14 +34,14 @@
 
 // Uncomment the following line to enable debugging messages
 // or enable on a per file basis prior to inclusion of util.h
-//#define ENABLE_POTATO_DEBUG
-#ifdef ENABLE_POTATO_DEBUG
+//#define ENABLE_INNOVA_DEBUG
+#ifdef ENABLE_INNOVA_DEBUG
 #define DBG( x ) x
 #else
 #define DBG( x ) 
 #endif
 
-//Potato only features
+//Innova only features
 
 extern bool fMasterNode;
 extern bool fLiteMode;
@@ -248,7 +248,7 @@ std::string GetThreadName();
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("potato-%s", name);
+    std::string s = strprintf("innova-%s", name);
     RenameThread(s.c_str());
     try
     {

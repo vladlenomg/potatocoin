@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Potato Core developers
+// Copyright (c) 2014-2017 The Innova Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -116,7 +116,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Potato address (e.g. %1)").arg("XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg"));
+    widget->setPlaceholderText(QObject::tr("Enter a Innova address (e.g. %1)").arg("XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg"));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -133,8 +133,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no potato: URI
-    if(!uri.isValid() || uri.scheme() != QString("potato"))
+    // return if URI is not valid or is no innova: URI
+    if(!uri.isValid() || uri.scheme() != QString("innova"))
         return false;
 
     SendCoinsRecipient rv;
@@ -183,7 +183,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::POTATO, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::INNOVA, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -203,13 +203,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert potato:// to potato:
+    // Convert innova:// to innova:
     //
-    //    Cannot handle this later, because potato:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because innova:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("potato://", Qt::CaseInsensitive))
+    if(uri.startsWith("innova://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 7, "potato:");
+        uri.replace(0, 7, "innova:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -217,12 +217,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("potato:%1").arg(info.address);
+    QString ret = QString("innova:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::POTATO, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::INNOVA, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -429,7 +429,7 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile();
 
-    /* Open potato.conf with the associated application */
+    /* Open innova.conf with the associated application */
     if (boost::filesystem::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
@@ -638,15 +638,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Potato.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Innova.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Potato (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Potato (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Innova (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Innova (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for Potato*.lnk
+    // check for Innova*.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -738,8 +738,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "potato.desktop";
-    return GetAutostartDir() / strprintf("potato-%s.lnk", chain);
+        return GetAutostartDir() / "innova.desktop";
+    return GetAutostartDir() / strprintf("innova-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -778,11 +778,11 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a potato.desktop file to the autostart directory:
+        // Write a innova.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Potato\n";
+            optionFile << "Name=Innova\n";
         else
             optionFile << strprintf("Name=Bitcoin (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
@@ -803,7 +803,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the Potato Core app
+    // loop through the list of startup items and try to find the Innova Core app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -848,7 +848,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add Potato Core app to startup item list
+        // add Innova Core app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {

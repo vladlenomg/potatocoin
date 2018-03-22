@@ -55,15 +55,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += potatod
+  bin_PROGRAMS += innovad
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += potato-cli potato-tx
+  bin_PROGRAMS += innova-cli innova-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# potato core #
+# innova core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addressindex.h \
@@ -191,7 +191,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between potatod and potato-qt
+# server: shared between innovad and innova-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -249,7 +249,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between potatod and potato-qt, but only linked
+# wallet: shared between innovad and innova-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -320,7 +320,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha512.cpp \
   crypto/sha512.h
 
-# common: shared between potatod, and potato-qt and non-server tools
+# common: shared between innovad, and innova-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -377,7 +377,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between potato-cli and potato-qt
+# cli: shared between innova-cli and innova-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -388,16 +388,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-potatod_SOURCES = potatod.cpp
-potatod_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-potatod_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-potatod_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+innovad_SOURCES = innovad.cpp
+innovad_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+innovad_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+innovad_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-potatod_SOURCES += potatod-res.rc
+innovad_SOURCES += innovad-res.rc
 endif
 
-potatod_LDADD = \
+innovad_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -408,50 +408,50 @@ potatod_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-potatod_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+innovad_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-potatod_LDADD += libbitcoin_wallet.a
+innovad_LDADD += libbitcoin_wallet.a
 endif
 
-potatod_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+innovad_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 
-# potato-cli binary #
-potato_cli_SOURCES = potato-cli.cpp
-potato_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-potato_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-potato_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# innova-cli binary #
+innova_cli_SOURCES = innova-cli.cpp
+innova_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+innova_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+innova_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-potato_cli_SOURCES += potato-cli-res.rc
+innova_cli_SOURCES += innova-cli-res.rc
 endif
 
-potato_cli_LDADD = \
+innova_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL)
-potato_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+innova_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# potato-tx binary #
-potato_tx_SOURCES = potato-tx.cpp
-potato_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-potato_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-potato_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# innova-tx binary #
+innova_tx_SOURCES = innova-tx.cpp
+innova_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+innova_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+innova_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-potato_tx_SOURCES += potato-tx-res.rc
+innova_tx_SOURCES += innova-tx-res.rc
 endif
 
-potato_tx_LDADD = \
+innova_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-potato_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+innova_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

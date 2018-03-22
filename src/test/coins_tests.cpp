@@ -5,7 +5,7 @@
 #include "coins.h"
 #include "random.h"
 #include "uint256.h"
-#include "test/test_potato.h"
+#include "test/test_innova.h"
 #include "main.h"
 #include "consensus/validation.h"
 

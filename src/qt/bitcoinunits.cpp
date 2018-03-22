@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Potato Core developers
+// Copyright (c) 2014-2017 The Innova Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,9 +19,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(POTATO);
-    unitlist.append(mPOTATO);
-    unitlist.append(uPOTATO);
+    unitlist.append(INNOVA);
+    unitlist.append(mINNOVA);
+    unitlist.append(uINNOVA);
     unitlist.append(duffs);
     return unitlist;
 }
@@ -30,9 +30,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case POTATO:
-    case mPOTATO:
-    case uPOTATO:
+    case INNOVA:
+    case mINNOVA:
+    case uINNOVA:
     case duffs:
         return true;
     default:
@@ -46,9 +46,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case POTATO: return QString("POTATO");
-            case mPOTATO: return QString("mPOTATO");
-            case uPOTATO: return QString::fromUtf8("μPOTATO");
+            case INNOVA: return QString("INNOVA");
+            case mINNOVA: return QString("mINNOVA");
+            case uINNOVA: return QString::fromUtf8("μINNOVA");
             case duffs: return QString("duffs");
             default: return QString("???");
         }
@@ -57,9 +57,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case POTATO: return QString("tPOTATO");
-            case mPOTATO: return QString("mtPOTATO");
-            case uPOTATO: return QString::fromUtf8("μtPOTATO");
+            case INNOVA: return QString("tINNOVA");
+            case mINNOVA: return QString("mtINNOVA");
+            case uINNOVA: return QString::fromUtf8("μtINNOVA");
             case duffs: return QString("tduffs");
             default: return QString("???");
         }
@@ -72,10 +72,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case POTATO: return QString("Potato");
-            case mPOTATO: return QString("Milli-Potato (1 / 1" THIN_SP_UTF8 "000)");
-            case uPOTATO: return QString("Micro-Potato (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-Potato (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case INNOVA: return QString("Innova");
+            case mINNOVA: return QString("Milli-Innova (1 / 1" THIN_SP_UTF8 "000)");
+            case uINNOVA: return QString("Micro-Innova (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-Innova (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -83,10 +83,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case POTATO: return QString("TestPotatos");
-            case mPOTATO: return QString("Milli-TestPotato (1 / 1" THIN_SP_UTF8 "000)");
-            case uPOTATO: return QString("Micro-TestPotato (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-TestPotato (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case INNOVA: return QString("TestInnovas");
+            case mINNOVA: return QString("Milli-TestInnova (1 / 1" THIN_SP_UTF8 "000)");
+            case uINNOVA: return QString("Micro-TestInnova (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-TestInnova (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -96,9 +96,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case POTATO:  return 100000000;
-    case mPOTATO: return 100000;
-    case uPOTATO: return 100;
+    case INNOVA:  return 100000000;
+    case mINNOVA: return 100000;
+    case uINNOVA: return 100;
     case duffs: return 1;
     default:   return 100000000;
     }
@@ -108,9 +108,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case POTATO: return 8;
-    case mPOTATO: return 5;
-    case uPOTATO: return 2;
+    case INNOVA: return 8;
+    case mINNOVA: return 5;
+    case uINNOVA: return 2;
     case duffs: return 0;
     default: return 0;
     }

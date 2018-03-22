@@ -1,36 +1,36 @@
-Potato Core staging tree 0.12.1
+Innova Core staging tree 0.12.1
 ===============================
 
-`master:` [![Build Status](https://travis-ci.org/potatocoin/potato.svg?branch=master)](https://travis-ci.org/potatocoin/potato) `v0.12.0.x:` [![Build Status](https://travis-ci.org/potatocoin/potato.svg?branch=v0.12.0.x)](https://travis-ci.org/potatocoin/potato/branches) `v0.12.1.x:` [![Build Status](https://travis-ci.org/potatocoin/potato.svg?branch=v0.12.1.x)](https://travis-ci.org/potatocoin/potato/branches)
+`master:` [![Build Status](https://travis-ci.org/innovacoin/innova.svg?branch=master)](https://travis-ci.org/innovacoin/innova) `v0.12.0.x:` [![Build Status](https://travis-ci.org/innovacoin/innova.svg?branch=v0.12.0.x)](https://travis-ci.org/innovacoin/innova/branches) `v0.12.1.x:` [![Build Status](https://travis-ci.org/innovacoin/innova.svg?branch=v0.12.1.x)](https://travis-ci.org/innovacoin/innova/branches)
 
-https://www.potatocoin.info
+https://www.innovacoin.info
 
 
-What is Potato?
+What is Innova?
 ----------------
 
-Potato is an experimental new digital currency that enables anonymous, instant
-payments to anyone, anywhere in the world. Potato uses peer-to-peer technology
+Innova is an experimental new digital currency that enables anonymous, instant
+payments to anyone, anywhere in the world. Innova uses peer-to-peer technology
 to operate with no central authority: managing transactions and issuing money
-are carried out collectively by the network. Potato Core is the name of the open
+are carried out collectively by the network. Innova Core is the name of the open
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Potato Core software, see https://www.potatocoin.info/get-potato/.
+the Innova Core software, see https://www.innovacoin.info/get-innova/.
 
 
 License
 -------
 
-Potato Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Innova Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is meant to be stable. Development is normally done in separate branches.
-[Tags](https://github.com/potatocoin/potato/tags) are created to indicate new official,
-stable release versions of Potato Core.
+[Tags](https://github.com/innovacoin/innova/tags) are created to indicate new official,
+stable release versions of Innova Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -66,7 +66,7 @@ Translations
 ------------
 
 Changes to translations as well as new translations can be submitted to
-[Potato Core's Transifex page](https://www.transifex.com/projects/p/potato/).
+[Innova Core's Transifex page](https://www.transifex.com/projects/p/innova/).
 
 Translations are periodically pulled from Transifex and merged into the git repository. See the
 [translation process](doc/translation_process.md) for details on how this works.
@@ -74,4 +74,4 @@ Translations are periodically pulled from Transifex and merged into the git repo
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
 
-Translators should also follow the [forum](https://www.potatocoin.info/forum/topic/potato-worldwide-collaboration.88/).
+Translators should also follow the [forum](https://www.innovacoin.info/forum/topic/innova-worldwide-collaboration.88/).

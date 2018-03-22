@@ -1,11 +1,11 @@
-Potato Core 0.12.1
+Innova Core 0.12.1
 =====================
 
-This is the official reference wallet for Potato digital currency and comprises the backbone of the Potato peer-to-peer network. You can [download Potato Core](https://www.potatocoin.info/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for Innova digital currency and comprises the backbone of the Innova peer-to-peer network. You can [download Innova Core](https://www.innovacoin.info/downloads/) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Potato on your native platform.
+The following are some helpful notes on how to run Innova on your native platform.
 
 ### Unix
 
@@ -16,22 +16,22 @@ Unpack the files into a directory and run:
 
 ### Windows
 
-Unpack the files into a directory, and then run potato-qt.exe.
+Unpack the files into a directory, and then run innova-qt.exe.
 
 ### OS X
 
-Drag Potato-Qt to your applications folder, and then run Potato-Qt.
+Drag Innova-Qt to your applications folder, and then run Innova-Qt.
 
 ### Need Help?
 
-* See the [Potato documentation](https://potatocoin.atlassian.net/wiki/display/DOC)
+* See the [Innova documentation](https://innovacoin.atlassian.net/wiki/display/DOC)
 for help and more information.
-* Ask for help on [#potatocoin](http://webchat.freenode.net?channels=potatocoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=potatocoin).
-* Ask for help on the [PotatoTalk](https://potatotalk.org/) forums.
+* Ask for help on [#innovacoin](http://webchat.freenode.net?channels=innovacoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=innovacoin).
+* Ask for help on the [InnovaTalk](https://innovatalk.org/) forums.
 
 Building
 ---------------------
-The following are developer notes on how to build Potato Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Innova Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -41,7 +41,7 @@ The following are developer notes on how to build Potato Core on your native pla
 
 Development
 ---------------------
-The Potato Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Innova Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -57,8 +57,8 @@ The Potato Core repo's [root README](/README.md) contains relevant information o
 - [Dnsseed Policy](dnsseed-policy.md)
 
 ### Resources
-* Discuss on the [PotatoTalk](https://potatotalk.org/) forums, in the Development & Technical Discussion board.
-* Discuss on [#potatocoin](http://webchat.freenode.net/?channels=potatocoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=potatocoin).
+* Discuss on the [InnovaTalk](https://innovatalk.org/) forums, in the Development & Technical Discussion board.
+* Discuss on [#innovacoin](http://webchat.freenode.net/?channels=innovacoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=innovacoin).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

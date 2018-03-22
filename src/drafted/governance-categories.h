@@ -4,22 +4,22 @@
 
 	* means the category has an associated class
 	
-	CPotatoNetwork: POTATO NETWORK (ROOT)
+	CInnovaNetwork: INNOVA NETWORK (ROOT)
 	has:
 		vector<CNetworkVariable> vecNetworkVariables;
-		vector<CPotatoProject> vecProjects;
+		vector<CInnovaProject> vecProjects;
 		vector<CGovernanceObject> vecProposals;
 		vector<CBudgetContract> vecContracts;
 		vector<CBudgetUsers> vecUsers;
 
-	CPotatoProject:
+	CInnovaProject:
 	has:
 		name
 		employees
 
 */
 
-	// POTATO NETWORK (ROOT)
+	// INNOVA NETWORK (ROOT)
 	// 	-> NETWORK VARIABLE
 	// 		-> switch, setting
 	// 	-> CATEGORIES
@@ -49,7 +49,7 @@
 	// 			-> USER1 (only users are allowed here in this scope)
 	// 			-> USER2
 	// 		-> GROUP2 (EVO)
-	// 			-> VALUEOVERRIDE (STORE=POTATODRIVE)
+	// 			-> VALUEOVERRIDE (STORE=INNOVADRIVE)
 	// 			-> USER1
 
 	// 	-> COMPANIES

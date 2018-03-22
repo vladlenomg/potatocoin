@@ -16,9 +16,9 @@ enum GovernanceObjectType {
     ValueOverride = 1, 
 
     // -------------------------------
-    // PotatoNetwork - is the root node
-    PotatoNetwork = 1000,
-    PotatoNetworkVariable = 1001,
+    // InnovaNetwork - is the root node
+    InnovaNetwork = 1000,
+    InnovaNetworkVariable = 1001,
     Category = 1002,
 
     // Actors

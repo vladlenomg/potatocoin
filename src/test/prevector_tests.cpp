@@ -9,7 +9,7 @@
 #include "serialize.h"
 #include "streams.h"
 
-#include "test/test_potato.h"
+#include "test/test_innova.h"
 
 #include <boost/test/unit_test.hpp>
 

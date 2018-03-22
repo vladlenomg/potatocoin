@@ -1,8 +1,8 @@
-// Copyright (c) 2014-2017 The Potato Core developers
+// Copyright (c) 2014-2017 The Innova Core developers
 
 #include "governance.h"
 
-#include "test/test_potato.h"
+#include "test/test_innova.h"
 
 #include <boost/test/unit_test.hpp>
 
