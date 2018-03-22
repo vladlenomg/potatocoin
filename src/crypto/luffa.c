@@ -125,7 +125,7 @@ static const sph_u64 RCW014[8] = {
 
 static const sph_u32 RC20[8] = {
 	SPH_C32(0xfc20d9d2), SPH_C32(0x34552e25),
-	SPH_C32(0x7ad8819f), SPH_C32(0x8438764a),
+	SPH_C32(0x7ad8818f), SPH_C32(0x8438764a),
 	SPH_C32(0xbb6de032), SPH_C32(0xedb780c8),
 	SPH_C32(0xd9847356), SPH_C32(0xa2c78434)
 };
@@ -155,7 +155,7 @@ static const sph_u32 RC34[8] = {
 
 static const sph_u64 RCW230[8] = {
 	SPH_C64(0xb213afa5fc20d9d2), SPH_C64(0xc84ebe9534552e25),
-	SPH_C64(0x4e608a227ad8819f), SPH_C64(0x56d858fe8438764a),
+	SPH_C64(0x4e608a227ad8818f), SPH_C64(0x56d858fe8438764a),
 	SPH_C64(0x343b138fbb6de032), SPH_C64(0xd0ec4e3dedb780c8),
 	SPH_C64(0x2ceb4882d9847356), SPH_C64(0xb3ad2208a2c78434)
 };
