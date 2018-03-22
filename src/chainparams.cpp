@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Innova Core developers
+// Copyright (c) 2014-2017 The Potato Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -51,7 +51,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Innova coin will start 19/10/2017";
+    const char* pszTimestamp = "Potato coin will start 19/10/2017";
     const CScript genesisOutputScript = CScript() << ParseHex("04099503c82072af8951d8ccf4c71a4899e05bcbdf7de513b1a1bba37301d1ae155d34532e4937de344f843a1f512cac6a5b96e41e62a02816411cbcc5d5d4965d") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -92,8 +92,8 @@ public:
         consensus.BIP34Height = 227931; // FIX
         consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8"); // FIX
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 30 * 2 * 60; // Innova: 1 hour, 30 blocks
-        consensus.nPowTargetSpacing = 2 * 60; // Innova: 2 minutes
+        consensus.nPowTargetTimespan = 30 * 2 * 60; // Potato: 1 hour, 30 blocks
+        consensus.nPowTargetSpacing = 2 * 60; // Potato: 2 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
@@ -127,20 +127,20 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x641917107e75e4fe61d86f80bb88f1b275195da653c50b4c789fd847ab69bea4"));
 
 
-        vSeeds.push_back(CDNSSeedData("innovacoin.info", "dnss1.innovacoin.info"));
-        vSeeds.push_back(CDNSSeedData("innovacoin.info", "dnss2.innovacoin.info"));
+        vSeeds.push_back(CDNSSeedData("potatocoin.info", "dnss1.potatocoin.info"));
+        vSeeds.push_back(CDNSSeedData("potatocoin.info", "dnss2.potatocoin.info"));
 
-        // Innova addresses start with 'i'
+        // Potato addresses start with 'i'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,102);
-        // Innova script addresses start with '9'
+        // Potato script addresses start with '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,20);
-        // Innova private keys start with '9' or 'i' (?)
+        // Potato private keys start with '9' or 'i' (?)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,195);
-        // Innova BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
+        // Potato BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
-        // Innova BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
+        // Potato BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
-        // Innova BIP44 coin type is '5'
+        // Potato BIP44 coin type is '5'
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x05).convert_to_container<std::vector<unsigned char> >();
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -198,8 +198,8 @@ public:
         consensus.BIP34Height = 21111; // FIX
         consensus.BIP34Hash = uint256S("0x0000000023b3a96d3484e5abb3755c413e7d41500f8e2a5c3f0dd01299cd8ef8"); // FIX
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 60 * 60; // Innova: 1 hour
-        consensus.nPowTargetSpacing = 2 * 60; // Innova: 2 minutes
+        consensus.nPowTargetTimespan = 60 * 60; // Potato: 1 hour
+        consensus.nPowTargetSpacing = 2 * 60; // Potato: 2 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
@@ -230,17 +230,17 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        // Testnet Innova addresses start with 'n'
+        // Testnet Potato addresses start with 'n'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
-        // Testnet Innova script addresses start with '5'
+        // Testnet Potato script addresses start with '5'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,10);
         // Testnet private keys start with '5' or 'n' (Bitcoin defaults) (?)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,240);
-        // Testnet Innova BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet Potato BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Innova BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet Potato BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Innova BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet Potato BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -298,8 +298,8 @@ public:
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
         consensus.BIP34Hash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 60 * 60; // Innova: 1 hour
-        consensus.nPowTargetSpacing = 2 * 60; // Innova: 2 minutes
+        consensus.nPowTargetTimespan = 60 * 60; // Potato: 1 hour
+        consensus.nPowTargetSpacing = 2 * 60; // Potato: 2 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
@@ -342,17 +342,17 @@ public:
             0,
             0
         };
-        // Regtest Innova addresses start with 'n'
+        // Regtest Potato addresses start with 'n'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
-        // Regtest Innova script addresses start with '5'
+        // Regtest Potato script addresses start with '5'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,10);
         // Regtest private keys start with '5' or 'c' (Bitcoin defaults) (?)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,240);
-        // Regtest Innova BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Regtest Potato BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Regtest Innova BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Regtest Potato BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
-        // Regtest Innova BIP44 coin type is '1' (All coin's testnet default)
+        // Regtest Potato BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
    }
 };

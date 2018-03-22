@@ -9,7 +9,7 @@
 #include <utility>
 #include <vector>
 
-#include "test/test_innova.h"
+#include "test/test_potato.h"
 
 #include <boost/foreach.hpp>
 #include <boost/test/unit_test.hpp>

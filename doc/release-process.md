@@ -1,7 +1,7 @@
 Release Process
 ====================
 
-* Update translations, see [translation_process.md](https://github.com/innovacoin/innova/blob/master/doc/translation_process.md#syncing-with-transifex)
+* Update translations, see [translation_process.md](https://github.com/potatocoin/potato/blob/master/doc/translation_process.md#syncing-with-transifex)
 * Update hardcoded [seeds](/contrib/seeds)
 
 * * *
@@ -10,14 +10,14 @@ Release Process
 Check out the source code in the following directory hierarchy.
 
 	cd /path/to/your/toplevel/build
-	git clone https://github.com/innovacoin/gitian.sigs.git
-	git clone https://github.com/innovacoin/innova-detached-sigs.git
+	git clone https://github.com/potatocoin/gitian.sigs.git
+	git clone https://github.com/potatocoin/potato-detached-sigs.git
 	git clone https://github.com/devrandom/gitian-builder.git
-	git clone https://github.com/innovacoin/innova.git
+	git clone https://github.com/potatocoin/potato.git
 
-###Innova Core maintainers/release engineers, update (commit) version in sources
+###Potato Core maintainers/release engineers, update (commit) version in sources
 
-	pushd ./innova
+	pushd ./potato
 	contrib/verifysfbinaries/verify.sh
 	configure.ac
 	doc/README*
@@ -40,7 +40,7 @@ Check out the source code in the following directory hierarchy.
 
  Setup Gitian descriptors:
 
-	pushd ./innova
+	pushd ./potato
 	export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
 	export VERSION=(new version, e.g. 0.8.0)
 	git fetch
@@ -76,52 +76,52 @@ Check out the source code in the following directory hierarchy.
 
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
-	make -C ../innova/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../potato/depends download SOURCES_PATH=`pwd`/cache/common
 
 Only missing files will be fetched, so this is safe to re-run for each build.
 
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 ```
-./bin/gbuild --url innova=/path/to/innova,signature=/path/to/sigs {rest of arguments}
+./bin/gbuild --url potato=/path/to/potato,signature=/path/to/sigs {rest of arguments}
 ```
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-###Build and sign Innova Core for Linux, Windows, and OS X:
+###Build and sign Potato Core for Linux, Windows, and OS X:
 
-	./bin/gbuild --commit innova=v${VERSION} ../innova/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../innova/contrib/gitian-descriptors/gitian-linux.yml
-	mv build/out/innova-*.tar.gz build/out/src/innova-*.tar.gz ../
+	./bin/gbuild --commit potato=v${VERSION} ../potato/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../potato/contrib/gitian-descriptors/gitian-linux.yml
+	mv build/out/potato-*.tar.gz build/out/src/potato-*.tar.gz ../
 
-	./bin/gbuild --commit innova=v${VERSION} ../innova/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../innova/contrib/gitian-descriptors/gitian-win.yml
-	mv build/out/innova-*-win-unsigned.tar.gz inputs/innova-win-unsigned.tar.gz
-	mv build/out/innova-*.zip build/out/innova-*.exe ../
+	./bin/gbuild --commit potato=v${VERSION} ../potato/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../potato/contrib/gitian-descriptors/gitian-win.yml
+	mv build/out/potato-*-win-unsigned.tar.gz inputs/potato-win-unsigned.tar.gz
+	mv build/out/potato-*.zip build/out/potato-*.exe ../
 
-	./bin/gbuild --commit innova=v${VERSION} ../innova/contrib/gitian-descriptors/gitian-osx.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../innova/contrib/gitian-descriptors/gitian-osx.yml
-	mv build/out/innova-*-osx-unsigned.tar.gz inputs/innova-osx-unsigned.tar.gz
-	mv build/out/innova-*.tar.gz build/out/innova-*.dmg ../
+	./bin/gbuild --commit potato=v${VERSION} ../potato/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../potato/contrib/gitian-descriptors/gitian-osx.yml
+	mv build/out/potato-*-osx-unsigned.tar.gz inputs/potato-osx-unsigned.tar.gz
+	mv build/out/potato-*.tar.gz build/out/potato-*.dmg ../
 	popd
 
   Build output expected:
 
-  1. source tarball (innova-${VERSION}.tar.gz)
-  2. linux 32-bit and 64-bit dist tarballs (innova-${VERSION}-linux[32|64].tar.gz)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (innova-${VERSION}-win[32|64]-setup-unsigned.exe, innova-${VERSION}-win[32|64].zip)
-  4. OS X unsigned installer and dist tarball (innova-${VERSION}-osx-unsigned.dmg, innova-${VERSION}-osx64.tar.gz)
+  1. source tarball (potato-${VERSION}.tar.gz)
+  2. linux 32-bit and 64-bit dist tarballs (potato-${VERSION}-linux[32|64].tar.gz)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (potato-${VERSION}-win[32|64]-setup-unsigned.exe, potato-${VERSION}-win[32|64].zip)
+  4. OS X unsigned installer and dist tarball (potato-${VERSION}-osx-unsigned.dmg, potato-${VERSION}-osx64.tar.gz)
   5. Gitian signatures (in gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/
 
 ###Verify other gitian builders signatures to your own. (Optional)
 
   Add other gitian builders keys to your gpg keyring
 
-	gpg --import ../innova/contrib/gitian-downloader/*.pgp
+	gpg --import ../potato/contrib/gitian-downloader/*.pgp
 
   Verify the signatures
 
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../innova/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../innova/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../innova/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../potato/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../potato/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../potato/contrib/gitian-descriptors/gitian-osx.yml
 
 	popd
 
@@ -139,25 +139,25 @@ Commit your signature to gitian.sigs:
 
   Wait for Windows/OS X detached signatures:
 	Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-	Detached signatures will then be committed to the [innova-detached-sigs](https://github.com/innovacoin/innova-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+	Detached signatures will then be committed to the [potato-detached-sigs](https://github.com/potatocoin/potato-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
   Create (and optionally verify) the signed OS X binary:
 
 	pushd ./gitian-builder
-	./bin/gbuild -i --commit signature=v${VERSION} ../innova/contrib/gitian-descriptors/gitian-osx-signer.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../innova/contrib/gitian-descriptors/gitian-osx-signer.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../innova/contrib/gitian-descriptors/gitian-osx-signer.yml
-	mv build/out/innova-osx-signed.dmg ../innova-${VERSION}-osx.dmg
+	./bin/gbuild -i --commit signature=v${VERSION} ../potato/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../potato/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../potato/contrib/gitian-descriptors/gitian-osx-signer.yml
+	mv build/out/potato-osx-signed.dmg ../potato-${VERSION}-osx.dmg
 	popd
 
   Create (and optionally verify) the signed Windows binaries:
 
 	pushd ./gitian-builder
-	./bin/gbuild -i --commit signature=v${VERSION} ../innova/contrib/gitian-descriptors/gitian-win-signer.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../innova/contrib/gitian-descriptors/gitian-win-signer.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../innova/contrib/gitian-descriptors/gitian-win-signer.yml
-	mv build/out/innova-*win64-setup.exe ../innova-${VERSION}-win64-setup.exe
-	mv build/out/innova-*win32-setup.exe ../innova-${VERSION}-win32-setup.exe
+	./bin/gbuild -i --commit signature=v${VERSION} ../potato/contrib/gitian-descriptors/gitian-win-signer.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../potato/contrib/gitian-descriptors/gitian-win-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../potato/contrib/gitian-descriptors/gitian-win-signer.yml
+	mv build/out/potato-*win64-setup.exe ../potato-${VERSION}-win64-setup.exe
+	mv build/out/potato-*win32-setup.exe ../potato-${VERSION}-win32-setup.exe
 	popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -182,21 +182,21 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the innovacoin.info server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the potatocoin.info server
 
-- Update innovacoin.info
+- Update potatocoin.info
 
 - Announce the release:
 
-  - Release on Innova forum: https://www.innovacoin.info/forum/topic/official-announcements.54/
+  - Release on Potato forum: https://www.potatocoin.info/forum/topic/official-announcements.54/
 
-  - Innova-development mailing list
+  - Potato-development mailing list
 
-  - Update title of #innovacoin on Freenode IRC
+  - Update title of #potatocoin on Freenode IRC
 
-  - Optionally reddit /r/Innovapay, ... but this will usually sort out itself
+  - Optionally reddit /r/Potatopay, ... but this will usually sort out itself
 
-- Notify flare so that he can start building [the PPAs](https://launchpad.net/~innovacoin.info/+archive/ubuntu/innova)
+- Notify flare so that he can start building [the PPAs](https://launchpad.net/~potatocoin.info/+archive/ubuntu/potato)
 
 - Add release notes for the new version to the directory `doc/release-notes` in git master
 

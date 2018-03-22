@@ -1,4 +1,4 @@
-Building Innova Core
+Building Potato Core
 
 Use the autogen script to prepare the build environment.
 
@@ -7,10 +7,10 @@ Use the autogen script to prepare the build environment.
     make
 
 Precompiled binaries are available at github, see
-https://github.com/innovacoin/innova-binaries
+https://github.com/potatocoin/potato-binaries
 
 Always verify the signatures and checksums.
 
-See doc/build-*.md for instructions on building innovad,
+See doc/build-*.md for instructions on building potatod,
 the intended-for-services, no-graphical-interface, reference
-implementation of Innova.
+implementation of Potato.

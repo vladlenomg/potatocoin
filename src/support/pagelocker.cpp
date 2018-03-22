@@ -5,7 +5,7 @@
 #include "support/pagelocker.h"
 
 #if defined(HAVE_CONFIG_H)
-#include "config/innova-config.h"
+#include "config/potato-config.h"
 #endif
 
 #ifdef WIN32

@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/innova-config.h"
+#include "config/potato-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -90,10 +90,10 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("INNOVA-light"), QVariant("light"));
-    ui->theme->addItem(QString("INNOVA-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("INNOVA-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("INNOVA-traditional"), QVariant("trad"));
+    ui->theme->addItem(QString("POTATO-light"), QVariant("light"));
+    ui->theme->addItem(QString("POTATO-blue"), QVariant("drkblue"));
+    ui->theme->addItem(QString("POTATO-Crownium"), QVariant("crownium"));
+    ui->theme->addItem(QString("POTATO-traditional"), QVariant("trad"));
     
     /* Language selector */
     QDir translations(":translations");

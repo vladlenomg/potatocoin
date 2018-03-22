@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/innova-config.h"
+#include "config/potato-config.h"
 #endif
 
 #include "amount.h"
@@ -230,7 +230,7 @@ private Q_SLOTS:
     void showPeers();
     void showRepair();
 
-    /** Open external (default) editor with innova.conf */
+    /** Open external (default) editor with potato.conf */
     void showConfEditor();
     /** Open external (default) editor with masternode.conf */
     void showMNConfEditor();
