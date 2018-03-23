@@ -5,7 +5,7 @@
 #include "util.h"
 
 #include "support/allocators/secure.h"
-#include "test/test_innova.h"
+#include "test/test_potato.h"
 
 #include <boost/test/unit_test.hpp>
 

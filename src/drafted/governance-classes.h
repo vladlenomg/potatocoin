@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Innova Core developers
+// Copyright (c) 2014-2017 The Potato Core developers
 
 /*
  * FIELDS AND CLASSIFICATION
@@ -45,7 +45,7 @@
  * =========================
  *
  *   // network
- *   CInnovaNetwork lvl, network-type, network-status, network-error, milestone-status*
+ *   CPotatoNetwork lvl, network-type, network-status, network-error, milestone-status*
  *   CCategory lvl, category-type, status, status-error
  *   CNetworkGlobalVariable lvl, global-type, status, status-error
  *   // base: actor
@@ -79,7 +79,7 @@
  *  TREE STRUCTURE
  *  ===========================================
  * 
- *  INNOVA NETWORK (ROOT)
+ *  POTATO NETWORK (ROOT)
  *      -> NETWORK GLOBOLS
  *          -> SWITCHES, SETTINGS
  *      -> CATEGORIES
@@ -117,7 +117,7 @@ private:
     int nLevel;
     std::string strCategory;
 
-    // Current OBJECT STATUS (see http://govman.innovacoin.info/index.php/Documentation_:_Status_Field)
+    // Current OBJECT STATUS (see http://govman.potatocoin.info/index.php/Documentation_:_Status_Field)
     int nStatusID;
     std::string strStatusMessage;
 
@@ -130,7 +130,7 @@ public:
 };
 
 // // root node
-class CInnovaNetwork : public CGovernanceObject
+class CPotatoNetwork : public CGovernanceObject
 {
 private:
     std::string strName;
@@ -138,7 +138,7 @@ private:
 
 
 public:
-    CInnovaNetwork(UniValue objIn)
+    CPotatoNetwork(UniValue objIn)
     {
         strName = objIn["name"].get_str();
         strURL = objIn["name"].get_str();
@@ -174,9 +174,9 @@ public:
 
 };
 
-// // can be under: InnovaNetwork
+// // can be under: PotatoNetwork
 // //   -- signature requirements : Key1(User)
-// class CInnovaNetworkVariable : public CGovernanceObject
+// class CPotatoNetworkVariable : public CGovernanceObject
 // {
 // private:
 
@@ -279,7 +279,7 @@ public:
 //     // isRootCategory()
 //     // {
 //     //     // root categories won't have categories as parents
-//     //     return (IsType() == InnovaNetwork);
+//     //     return (IsType() == PotatoNetwork);
 //     // }
 
 //     // isSubcategoryOf(std::string strParentName)

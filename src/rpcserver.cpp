@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Innova Core developers
+// Copyright (c) 2014-2017 The Potato Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -243,11 +243,11 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop Innova Core server.");
+            "\nStop Potato Core server.");
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "Innova Core server stopping";
+    return "Potato Core server stopping";
 }
 
 /**
@@ -342,19 +342,19 @@ static const CRPCCommand vRPCCommands[] =
     { "hidden",             "resendwallettransactions", &resendwallettransactions, true},
 #endif
 
-    /* Innova features */
-    { "innova",               "masternode",             &masternode,             true  },
-    { "innova",               "masternodelist",         &masternodelist,         true  },
-    { "innova",               "masternodebroadcast",    &masternodebroadcast,    true  },
-    { "innova",               "gobject",                &gobject,                true  },
-    { "innova",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
-    { "innova",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
-    { "innova",               "voteraw",                &voteraw,                true  },
-    { "innova",               "mnsync",                 &mnsync,                 true  },
-    { "innova",               "spork",                  &spork,                  true  },
-    { "innova",               "getpoolinfo",            &getpoolinfo,            true  },
+    /* Potato features */
+    { "potato",               "masternode",             &masternode,             true  },
+    { "potato",               "masternodelist",         &masternodelist,         true  },
+    { "potato",               "masternodebroadcast",    &masternodebroadcast,    true  },
+    { "potato",               "gobject",                &gobject,                true  },
+    { "potato",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
+    { "potato",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
+    { "potato",               "voteraw",                &voteraw,                true  },
+    { "potato",               "mnsync",                 &mnsync,                 true  },
+    { "potato",               "spork",                  &spork,                  true  },
+    { "potato",               "getpoolinfo",            &getpoolinfo,            true  },
 #ifdef ENABLE_WALLET
-    { "innova",               "privatesend",            &privatesend,            false },
+    { "potato",               "privatesend",            &privatesend,            false },
 
     /* Wallet */
     { "wallet",             "keepass",                &keepass,                true },
@@ -577,7 +577,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(const std::string& methodname, const std::string& args)
 {
-    return "> innova-cli " + methodname + " " + args + "\n";
+    return "> potato-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(const std::string& methodname, const std::string& args)

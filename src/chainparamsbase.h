@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between innova-cli and innovad)
- * of a given instance of the Innova system.
+ * CBaseChainParams defines the base parameters (shared between potato-cli and potatod)
+ * of a given instance of the Potato system.
  */
 class CBaseChainParams
 {

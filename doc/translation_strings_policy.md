@@ -1,7 +1,7 @@
 Translation Strings Policy
 ===========================
 
-This document provides guidelines for internationalization of the Innova Core software.
+This document provides guidelines for internationalization of the Potato Core software.
 
 How to translate?
 ------------------
@@ -85,10 +85,10 @@ In Qt code use tr's third argument for optional plurality. For example:
 This adds `<numerusform>`s to the respective `.ts` file, which can be translated separately depending on the language. In English, this is simply:
 
     <message numerus="yes">
-        <source>%n active connection(s) to Innova network</source>
+        <source>%n active connection(s) to Potato network</source>
         <translation>
-            <numerusform>%n active connection to Innova network</numerusform>
-            <numerusform>%n active connections to Innova network</numerusform>
+            <numerusform>%n active connection to Potato network</numerusform>
+            <numerusform>%n active connections to Potato network</numerusform>
         </translation>
     </message>
 

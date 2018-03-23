@@ -123,7 +123,7 @@ public:
 };
 
 /**
- * Innova RPC command dispatcher.
+ * Potato RPC command dispatcher.
  */
 class CRPCTable
 {

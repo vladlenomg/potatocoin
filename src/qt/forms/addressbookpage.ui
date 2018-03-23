@@ -137,7 +137,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../innova.qrc"/>
+  <include location="../potato.qrc"/>
  </resources>
  <connections/>
 </ui>

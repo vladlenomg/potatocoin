@@ -4,7 +4,7 @@
 
 #include "limitedmap.h"
 
-#include "test/test_innova.h"
+#include "test/test_potato.h"
 
 #include <boost/test/unit_test.hpp>
 
