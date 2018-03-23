@@ -112,10 +112,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0x3c;
-        pchMessageStart[1] = 0x2a;
-        pchMessageStart[2] = 0x3a;
-        pchMessageStart[3] = 0xb9;
+        pchMessageStart[0] = 0x76;
+        pchMessageStart[1] = 0x69;
+        pchMessageStart[2] = 0x6b;
+        pchMessageStart[3] = 0x61;
         vAlertPubKey = ParseHex("04928ace53a0b841e6737713c92b1ba5802f517ce1d69e33bf9bfdc2e93e2e71c6fd454e330bcf5182c3fc355ad47015f7cc288e37470f7c2e4848441959ffffff");
         nDefaultPort = 18808;
         nMaxTipAge = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
@@ -127,8 +127,10 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x641917107e75e4fe61d86f80bb88f1b275195da653c50b4c789fd847ab69bea4"));
 
 
-        vSeeds.push_back(CDNSSeedData("potatocoin.info", "dnss1.potatocoin.info"));
-        vSeeds.push_back(CDNSSeedData("potatocoin.info", "dnss2.potatocoin.info"));
+        // vSeeds.push_back(CDNSSeedData("potatocoin.info", "dnss1.potatocoin.info"));
+        // vSeeds.push_back(CDNSSeedData("potatocoin.info", "dnss2.potatocoin.info"));
+        vSeeds.clear();
+
 
         // Potato addresses start with 'i'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,102);
@@ -213,10 +215,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1502280000; // Aug 9th, 2017
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1533816000; // Aug 9th, 2018
 
-        pchMessageStart[0] = 0xb1;
-        pchMessageStart[1] = 0xa4;
-        pchMessageStart[2] = 0xd5;
-        pchMessageStart[3] = 0x7c;
+        pchMessageStart[0] = 0x76;
+        pchMessageStart[1] = 0x6c;
+        pchMessageStart[2] = 0x61;
+        pchMessageStart[3] = 0x64;
         vAlertPubKey = ParseHex("04928ace53a0b841e6737713c92b1ba5802f517ce1d69e33bf9bfdc2e93e2e71c6fd454e330bcf5182c3fc355ad47015f7cc288e37470f7c2e4848441959ffffff");
         nDefaultPort = 18908;
         nMaxTipAge = 0x7fffffff; // allow mining on top of old blocks for testnet
@@ -311,10 +313,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 999999999999ULL;
 
-        pchMessageStart[0] = 0xa4;
-        pchMessageStart[1] = 0x3b;
-        pchMessageStart[2] = 0xb9;
-        pchMessageStart[3] = 0x75;
+        pchMessageStart[0] = 0x61;
+        pchMessageStart[1] = 0x69;
+        pchMessageStart[2] = 0x72;
+        pchMessageStart[3] = 0x69;
         nMaxTipAge = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
         nDefaultPort = 18988;
         nPruneAfterHeight = 1000;
