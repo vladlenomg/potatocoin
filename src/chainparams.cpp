@@ -51,8 +51,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Potato coin will start 19/10/2017";
-    const CScript genesisOutputScript = CScript() << ParseHex("04099503c82072af8951d8ccf4c71a4899e05bcbdf7de513b1a1bba37301d1ae155d34532e4937de344f843a1f512cac6a5b96e41e62a02816411cbcc5d5d4965d") << OP_CHECKSIG;
+    const char* pszTimestamp = "Kanye West releases The Life of Pablo 14/02/2016";
+    const CScript genesisOutputScript = CScript() << ParseHex("04082463beb5090dd612bcff564d3a7dff0bdaebfc68a43c002c34a1e090e8fc8df7eb09ec0f18be031b4df6639ca08f263a576585a76ea2f7398f4ee9356911e6") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
